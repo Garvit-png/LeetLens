@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Definition: The <head> contains metadata and linked files (CSS/fonts), not visible UI. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Analyzer | Versus Mode</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page container: wraps all visible content to keep layout consistent. -->
+    <div class="container">
+        <!-- Navigation section: lets the user move between app pages. -->
+        <nav>
+            <a href="index.html">Single Analytics</a>
+            <a href="versus.html" class="active">Versus Mode</a>
+        </nav>
+
+        <!-- Header section: page title and one-line usage instruction. -->
+        <header>
+            <h1>Versus <span>Mode</span></h1>
+            <p>Compare two usernames to see who is leading!</p>
+        </header>
+
+        <!-- Main section: input controls + result cards + status/winner messages. -->
+        <main>
+            <section class="input-section">
+                <div class="input-group">
+                    <!-- Two input fields: each one takes one LeetCode username. -->
+                    <input type="text" id="user1" placeholder="Username 1">
+                    <input type="text" id="user2" placeholder="Username 2">
+                </div>
+                <!-- Action button: triggers comparison logic in versus.js. -->
+                <button id="compare-btn">Compare Players</button>
+            </section>
+
+            <!-- Results grid: shows stats card for user1 and user2 after successful API calls. -->
+            <section id="results" class="results-grid">
+                <div id="stats1" class="stats-card hidden">
+                    <h2 class="username-display" id="u1-name">User 1</h2>
+                    <div class="stat-item">
+                        <span class="label">Total Solved:</span>
+                        <span class="value" id="u1-total">-</span>
+                    </div>
+                    <div class="difficulty-counts">
+                        <span class="easy" id="u1-easy">E: -</span>
+                        <span class="medium" id="u1-medium">M: -</span>
+                        <span class="hard" id="u1-hard">H: -</span>
+                    </div>
+                    <strong>Topics:</strong>
+                    <ul id="u1-topics" class="topics-list"></ul>
+                </div>
+
+                <!-- VS badge: visual separator shown only after both cards are visible. -->
+                <div id="vs-badge" class="vs-badge hidden">VS</div>
+
+                <div id="stats2" class="stats-card hidden">
+                    <h2 class="username-display" id="u2-name">User 2</h2>
+                    <div class="stat-item">
+                        <span class="label">Total Solved:</span>
+                        <span class="value" id="u2-total">-</span>
+                    </div>
+                    <div class="difficulty-counts">
+                        <span class="easy" id="u2-easy">E: -</span>
+                        <span class="medium" id="u2-medium">M: -</span>
+                        <span class="hard" id="u2-hard">H: -</span>
+                    </div>
+                    <strong>Topics:</strong>
+                    <ul id="u2-topics" class="topics-list"></ul>
+                </div>
+            </section>
+
+            <!-- Winner section: JavaScript writes final result text here. -->
+            <section id="comparison-result" class="comparison-box hidden">
+                <h3>Who is winning?</h3>
+                <p id="winner-text"></p>
+            </section>
+
+            <!-- Status helpers: loader appears during request, error appears on failure. -->
+            <div id="loader" class="loader hidden">Fetching comparison...</div>
+            <div id="error-msg" class="error hidden">Not found!</div>
+        </main>
+    </div>
+
+    <!-- Script link: loads compare-mode behavior from versus.js. -->
+    <script src="versus.js"></script>
+</body>
+</html>

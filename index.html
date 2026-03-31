@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Definition: The <head> stores metadata (information about the page), not visible content. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Analyzer | Single Stats</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page container: keeps all visible content grouped for layout styling. -->
+    <div class="container">
+        <!-- Navigation section: links between Single Analytics and Versus Mode pages. -->
+        <nav>
+            <a href="index.html" class="active">Single Analytics</a>
+            <a href="versus.html">Versus Mode</a>
+        </nav>
+
+        <!-- Header section: title + one-line purpose of this page. -->
+        <header>
+            <h1>Single <span>Analytics</span></h1>
+            <p>Enter a username to see solved problems and topics.</p>
+        </header>
+
+        <!-- Main section: input area + result area + status messages (loader/error). -->
+        <main>
+            <!-- API definitions used by JS:
+                 1) /USERNAME/solved => total/easy/medium/hard solved counts
+                 2) /skillStats/USERNAME => topic/skill breakdown -->
+            <section class="input-section">
+                <div class="input-group">
+                    <!-- Input definition: user types a LeetCode username here. -->
+                    <input type="text" id="username" placeholder="Search LeetCode Username" autocomplete="off">
+                    <!-- Button definition: clicking triggers JavaScript to fetch stats. -->
+                    <button id="search-btn">Get Stats</button>
+                </div>
+            </section>
+
+            <!-- Results section: JavaScript fills these placeholders after API response. -->
+            <section id="results" class="results-grid">
+                <div id="stats-card" class="stats-card hidden">
+                    <h2 class="username-display" id="display-name">Username</h2>
+
+                    <div class="stat-item">
+                        <span class="label">Total Solved:</span>
+                        <span class="value" id="total-solved">-</span>
+                    </div>
+
+                    <div class="difficulty-counts">
+                        <span class="easy" id="easy-count">E: -</span>
+                        <span class="medium" id="medium-count">M: -</span>
+                        <span class="hard" id="hard-count">H: -</span>
+                    </div>
+
+                    <div class="topics-section">
+                        <strong>Skill Topics:</strong>
+                        <!-- Definition: <ul> is an unordered list; JS appends <li> items here. -->
+                        <ul id="topics-list" class="topics-list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loader: shown during network request. Error: shown if user is invalid/not found. -->
+            <div id="loader" class="loader hidden">Fetching LeetCode data...</div>
+            <div id="error-msg" class="error hidden">User not found! Check spelling.</div>
+        </main>
+    </div>
+
+    <!-- Script link: loads behavior (DOM updates + API calls) from script.js. -->
+    <script src="script.js"></script>
+</body>
+</html>
