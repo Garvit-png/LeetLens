@@ -1,0 +1,153 @@
+/* Basic Yellow & White Theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: #ffeb3b; /* Soft Yellow */
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    margin-bottom: 30px;
+    background: #000;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav a:hover, nav a.active {
+    background: #ffeb3b;
+    color: #000;
+    border-radius: 4px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #000;
+}
+
+/* Search Box & Cards */
+.input-section, .stats-card, .comparison-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+}
+
+button {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Results Grid */
+.results-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.stats-card {
+    width: 320px;
+    text-align: left;
+}
+
+.username-display {
+    border-bottom: 3px solid #ffeb3b;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.difficulty-counts {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.easy { color: #2e7d32; }
+.medium { color: #f57f17; }
+.hard { color: #c62828; }
+
+.topics-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.topics-list li {
+    background: #eee;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.vs-badge {
+    background: #000;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.hidden { display: none; }
+.loader { font-weight: bold; margin: 10px; }
+.error { color: #d32f2f; font-weight: bold; }
